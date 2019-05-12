@@ -1,4 +1,5 @@
 package dairyfactory;
+import dairyvisitor.*;
 
 public class BeefCattle extends Cattle {
 	
@@ -12,5 +13,15 @@ public class BeefCattle extends Cattle {
 		else return null;
 
 }
-
+	public BeefCattle() {} //non-parameterized Constructor
+	
+	//CONSTRUCTOR
+	public BeefCattle(String name,int id, Boolean vaccinationState, Boolean earTag) {
+		super(name,id,vaccinationState,earTag);
+		
+	}
+	
+	public void Accept(Visitor visitor) {
+		visitor.Visit(this);
+		}
 }
