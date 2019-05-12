@@ -1,6 +1,7 @@
 import dairyadapter.*;
 import dairyfactory.*;
 import dairyobserver.*;
+import dairyvisitor.*;
 
 public class FakeTesting {
 	public static void main(String[] args) {
@@ -32,14 +33,27 @@ public class FakeTesting {
 		   z.setTrackingDevice(test);
 		   test.Attach(x);
 		   test.Attach(z);
-		   test.setRange(signalforRange.usingBluetoothSignal(655)); //1000 den azsa notifylamÄ±yacak farmerlarÄ±
+		   test.setRange(signalforRange.usingBluetoothSignal(655)); //1000 den azsa notifylamýyacak farmerlarý
 		   test.setRange(signalforRange.usingBluetoothSignal(1225));
 		   test.setRange(signalforRange.usingBluetoothSignal(853));
 		   test.setRange(signalforRange.usingBluetoothSignal(1473));
-
 		   
+		   System.out.println("time to start testing visitor pattern!");
+		   //testing visitor pattern
+		   Cattles cattles = new Cattles();
+		   //Set up Cattles collection
+		   cattles.Add(new BeefCattle("Beef Cattle", 13, false,false));
+		   cattles.Add(new BeefCattle("Beef Cattle", 21, true,false));
+		   cattles.Add(new BeefCattle("Beef Cattle", 17, false,true));
+		   cattles.Add(new BeefCattle("Beef Cattle", 23, true,true));
+		   cattles.Add(new DairyCattle("Dairy Cattle", 56, false,false));
+		   cattles.Add(new DairyCattle("Dairy Cattle", 64, true,false));
+		   cattles.Add(new DairyCattle("Dairy Cattle", 36, false,true));
+		   cattles.Add(new DairyCattle("Dairy Cattle", 51, true,true));
 		   
-		   
+		   //Cattles are visited.
+		   cattles.Accept(new Ministry());
+		   cattles.Accept(new VeterinaryPhysician());
 		}
 
 }
