@@ -1,7 +1,5 @@
 package livestockfactory;
 
-public abstract class Protein extends FoodProduct{
-	
+public abstract class Protein extends FoodProduct {
 	abstract public String displayName();
-
 }
