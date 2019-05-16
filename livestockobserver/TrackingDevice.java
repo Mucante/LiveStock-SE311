@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 //subject of observer pattern
 abstract public class TrackingDevice {
-	public TrackingDevice(String symbol,double range) {
+	public TrackingDevice(String symbol, double range) {
 		_symbol = symbol;
 		_range = range;
 	}
@@ -40,10 +40,12 @@ abstract public class TrackingDevice {
 	void setSymbol(String value) {
 		_symbol = value;
 	}
-	
-	public double getRange(){return 0;}
+
+	public double getRange() {
+		return 0;
+	}
+
 	public abstract void setRange(double rangevalue);
-	
 
 	protected String _symbol; // Internal Subject state
 	protected double _range;
